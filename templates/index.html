@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Air Quality Prediction Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar/Header -->
+        <header class="dashboard-header">
+            <div class="logo">
+                <span class="icon">🍃</span>
+                <h1>AeroCast</h1>
+            </div>
+            <p class="subtitle">AI-Powered Air Quality Forecasting</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="dashboard-grid">
+            <!-- Left Panel: Current Status -->
+            <section class="panel current-status-panel">
+                <div class="panel-header">
+                    <h2>Current Situation</h2>
+                    <span class="timestamp" id="current-time">-</span>
+                </div>
+                <div class="aqi-display">
+                    <div class="aqi-ring">
+                        <div class="aqi-value" id="current-aqi">-</div>
+                        <div class="aqi-label">AQI</div>
+                    </div>
+                    <p class="aqi-status" id="aqi-status">Loading...</p>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-icon">🌡️</span>
+                        <div class="metric-info">
+                            <span class="metric-label">Temperature</span>
+                            <span class="metric-value"><span id="metric-temp">-</span>°C</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-icon">💧</span>
+                        <div class="metric-info">
+                            <span class="metric-label">Humidity</span>
+                            <span class="metric-value"><span id="metric-humidity">-</span>%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Charts -->
+            <section class="panel chart-panel">
+                <div class="panel-header">
+                    <h2>Historical & Tomorrow's Forecast</h2>
+                    <div class="chart-toggles">
+                        <button class="toggle-btn active" data-chart="aqi">AQI</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="forecastChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Bottom Section: Analysis -->
+            <section class="panel analysis-panel">
+                <div class="panel-header">
+                    <h2>Insights & Actionables</h2>
+                </div>
+                <div class="insight-cards">
+                    <div class="insight-card info">
+                        <h3>🤖 AI Prediction</h3>
+                        <p id="insight-prediction">Analyzing future trends...</p>
+                    </div>
+                    <div class="insight-card warning">
+                        <h3>⚠️ Recommendation</h3>
+                        <p id="insight-recommendation">Processing data...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>Created by <span class="author">Raj Ghorui</span></p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
